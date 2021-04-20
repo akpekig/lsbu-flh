@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>LSBU Family Law Hub Form Application</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="title" content="LSBU FLH Form Application">
+      <meta name="description" content="Application for legal advice in family law cases.">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+      <!--Other-->
+      <style>
+      </style>
+   </head>
+   <body>
+      <h3>Your Details:</h3>
+      <!--FORM *TAG* STARTS HERE-->
+      <form method="post" action="/submit" id="form-submission">
+         <div class="row">
+            <div class="form-group col">
+               <label for="name">First Name</label>
+               <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter your first name" maxlength="32" required> <small id="nameHelp" class="form-text text-muted">We won't require your last name or any other identifying information.</small> 
+            </div>
+            <div class="form-group col">
+               <label for="ageInput">Age</label>
+               <input type="number" class="form-control" id="age" name="age" aria-describedby="ageHelp" placeholder="How old are you?" min="0" max="150" step="1" data-bind="value:replyNumber" required> 
+            </div>
+         </div>
+         <div class="form-group row col">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" name="gender" required>
+               <option selected disabled>Choose...</option>
+               <option>Female</option>
+               <option>Male</option>
+               <option>Other</option>
+               <option>Prefer not to say</option>
+            </select>
+         </div>
+         <div>
+            <div class="row col my-2">
+               <label for="ethnicity">Ethnicity</label>
+               <select class="form-control" id="ethnicity" name="ethnicity" required>
+                  <option selected disabled>Choose...</option>
+                  <option>Asian or Asian British</option>
+                  <option>Black, African, Black British or Caribbean</option>
+                  <option>Mixed or multiple ethnic groups</option>
+                  <option>White</option>
+                  <option>Other</option>
+                  <option>Prefer not to say</option>
+               </select>
+            </div>
+         </div>
+         <div class="row mt-3">
+            <div class="form-group col">
+               <label for="language">What is your native language?</label>
+               <input type="text" class="form-control" id="language" name="language" placeholder="Enter your first language" maxlength="32" required> 
+            </div>
+            <div class="form-group col mb-2">
+               <label for="postcode">Where do you live?</label>
+               <input type="text" class="form-control" id="postcode" name="postcode" aria-describedby="locHelp" placeholder="Enter the first half of your postcode" maxlength="10" required> <small id="locHelp" class="form-text text-muted">We won't be asking for your full address.</small> 
+            </div>
+         </div>
+         <div class="row">
+            <div class="form-group col">
+               <label for="email">Email</label>
+               <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" maxlength="64" required> 
+            </div>
+            <div class="form-group col mb-2">
+               <label for="tel">Mobile number</label>
+               <input type="tel" class="form-control" id="tel" name="tel" aria-describedby="numberHelp" placeholder="Enter your phone number" maxlength="15"> <small id="numberHelp" class="form-text text-muted">Optional.</small> 
+            </div>
+         </div>
+         <div class="form-group form-check mb-4" id="disabilityDiv">
+            <label class="form-check-label float-xl-start" for="disability">Do you consider yourself to have a disability?</label>
+            <input type="checkbox" class="form-check-input ms-2 mt-.7" id="disability" name="disability" value="yes">
+            <br /> <small id="disability" class="form-text text-muted">This includes vision impairment, deaf or hard of hearing, mental health conditions, intellectual disability, acquired brain injury, autism spectrum disorder and physical disability.</small> 
+         </div>
+         <h3>Details Of The Other Party:</h3>
+         <div class="row">
+            <div class="form-group col">
+               <label for="otherName">Name</label>
+               <input type="text" class="form-control" id="otherName" name="otherName" placeholder="Enter their first name" required maxlength="32"> 
+            </div>
+            <div class="form-group col">
+               <label for="otherAge">Age</label>
+               <input type="number" class="form-control" id="otherAge" name="otherAge" placeholder="How old are they?" min="0" max="150" step="1" data-bind="value:replyNumber" required> 
+            </div>
+            <div>
+               <div class="row col mt-2">
+                  <label for="otherGender">Gender</label>
+                  <select class="form-control" id="otherGender" name="otherGender" required>
+                     <option selected>Choose...</option>
+                     <option>Female</option>
+                     <option>Male</option>
+                     <option>Other</option>
+                     <option>Prefer not to say</option>
+                  </select>
+               </div>
+            </div>
+            <div>
+               <div class="row col my-2">
+                  <label for="otherEth">Ethnicity</label>
+                  <select class="form-control" id="otherEth" name="otherEth" required>
+                     <option selected disabled>Choose...</option>
+                     <option>Asian or Asian British</option>
+                     <option>Black, African, Black British or Caribbean</option>
+                     <option>Mixed or multiple ethnic groups</option>
+                     <option>White</option>
+                     <option>Other</option>
+                     <option>Prefer not to say</option>
+                  </select>
+               </div>
+            </div>
+            <div>
+               <div style="width: 60%;" class="form-group row col my-2 mt-4">
+                  <small id="childrenSection" class="text-muted">Skip year questions if you are not nor have you ever been in a relationship with the other party.</small>
+                  <label for="relYear">What year did your relationship with the other party begin?</label>
+                  <input type="number" class="form-control" min="1900" max="2099" step="1" name="relYear" placeholder="YYYY"> 
+               </div>
+            </div>
+            <div>
+               <div style="width: 60%;" class="form-group row col mr-auto">
+                  <label for="marrYear">If you are married to them or in a civil partnership with them, in which year was the marriage or civil partnership?</label>
+                  <input type="number" class="form-control" min="1900" max="2099" step="1" name="marrYear" placeholder="YYYY"> 
+               </div>
+            </div>
+            <div>
+               <div style="width: 60%;" class="form-group row col mr-auto">
+                  <label for="sepYear">If you have separated, when did you separate?</label>
+                  <input type="number" class="form-control" min="1900" max="2099" step="1" name="sepYear" placeholder="YYYY"> 
+               </div>
+            </div>
+            <div class="form-group row col mx-auto">
+               <div class="mt-4">
+                  <span>Does the other party tell you what you can spend money on?</span>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="finAbuse" id="yes" value="yes">
+                     <label class="form-check-label" for="yes">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="finAbuse" id="no" value="no">
+                     <label class="form-check-label" for="no">No</label>
+                  </div>
+               </div>
+               <div class="mt-4">
+                  <span>Does the other party shout at you?</span>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="verAbuse" id="yes" value="yes">
+                     <label class="form-check-label" for="yes">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="verAbuse" id="no" value="no">
+                     <label class="form-check-label" for="no">No</label>
+                  </div>
+               </div>
+               <div class="my-4">
+                  <span>Does the other party threaten or use violence?</span>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="physAbuse" id="yes" value="yes">
+                     <label class="form-check-label" for="yes">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="physAbuse" id="no" value="no">
+                     <label class="form-check-label" for="no">No</label>
+                  </div>
+               </div>
+               <h4>Children</h4>
+               <small id="childrenSection" class="text-muted">Skip this section if you don't have any children.</small>
+               <div class="my-4">
+                  <span>How many children do you have?</span>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="childCount" id="1" value="1">
+                     <label class="form-check-label" for="1">1</label>
+                  </div>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="childCount" id="2" value="2">
+                     <label class="form-check-label" for="2">2</label>
+                  </div>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="childCount" id="3" value="3">
+                     <label class="form-check-label" for="3">3</label>
+                  </div>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="childCount" id="4" value="4">
+                     <label class="form-check-label" for="4">4</label>
+                  </div>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="childCount" id="moreThanFour" value="moreThanFour">
+                     <label class="form-check-label" for="moreThanFour">More than four</label>
+                  </div>
+                  <div class="my-4">
+                     <span>Do any of your children have the following special needs?</span>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Speech and/or language delays" id="speech" name="specialNeeds[]">
+                        <label class="form-check-label" for="speech"> Speech and/or language delays </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Autism Spectrum Disorder" id="autism" name="specialNeeds[]">
+                        <label class="form-check-label" for="autism"> Autism Spectrum Disorder </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Cognitive delays" id="cognitive" name="specialNeeds[]">
+                        <label class="form-check-label" for="cognitive"> Cognitive delays </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Social & emotional disorders" id="psychosocial" name="specialNeeds[]">
+                        <label class="form-check-label" for="psychosocial"> Social & emotional disorders </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Learning differences/disabilities" id="learning" name="specialNeeds[]">
+                        <label class="form-check-label" for="learning"> Learning differences/disabilities </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Other" id="other" name="specialNeeds[]">
+                        <label class="form-check-label" for="other"> Other </label>
+                     </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="None of my children have any special needs" id="none" name="specialNeeds[]">
+                        <label class="form-check-label" for="none"> None of my children have any special needs. </label>
+                     </div>
+                  </div>
+                  <div class="mt-4">
+                     <span>Are any of your children at risk of suffering serious injury?</span>
+                     <div class="form-check form-check-inline mx-2">
+                        <input class="form-check-input" type="radio" name="childAbuse" id="yes" value="yes">
+                        <label class="form-check-label" for="yes">Yes</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="childAbuse" id="no" value="no">
+                        <label class="form-check-label" for="no">No</label>
+                     </div>
+                  </div>
+               </div>
+               <label for="childAbuseDetail">If you answered yes to the previous question, can you please provide more detail?</label>
+               <textarea type="text" class="form-control" id="childAbuseDetail" name="childAbuseDetail" aria-describedby="detailHelp" placeholder="Enter text" maxlength="512" rows=3></textarea>
+               </>
+               <h4>Contact</h4>
+               <div class="form-group">
+                  <label class=" control-label" for="adviceType[]">What would you like to talk to us about?</label>
+                  <div class="d-grid gap-3">
+                     <div class="my-4">
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-0" value="relationship counselling" name="adviceType[]">
+                           <label class="form-check-label" for="adviceType-0">relationship counselling </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-1" value="mediation" name="adviceType[]"> <label class="form-check-label" for="adviceType-1”>mediation </label>
+                              </div>
+                              <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-2" value="protection from domestic abuse" name="adviceType[]"> <label class="form-check-label" for="adviceType-2">protection from domestic abuse </label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="adviceType-3" value="divorce (married or in a civil partnership)" name="adviceType[]"><label class="form-check-label" for="adviceType-3">
+                           divorce (married or in a civil partnership) </label>
+                        </div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="adviceType-4" value="separation (not married - not in a civil partnership)" name="adviceType[]"> <label class="form-check-label" for="adviceType-4">separation (not married - not in a civil partnership) </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-5" value="arrangements for your children's care" name="adviceType[]"> <label class="form-check-label" for="adviceType-5">arrangements for your children's care</label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-6" value="international child abduction" name="adviceType[]"> <label class="form-check-label" for="adviceType-6">international child abduction</label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-7" value="child maintenance" name="adviceType[]"><label class="form-check-label" for="adviceType-7"> child maintenance </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-8" value="financial settlement / arrangements" name="adviceType[]"> <label class="form-check-label" for="adviceType-8">
+                           financial settlement / arrangements </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-9" value="an existing court case" name="adviceType[]"> <label class="form-check-label" for="adviceType-9">
+                           an existing court case </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-10" value="make an application to court" name="adviceType[]"><label class="form-check-label" for="adviceType-10">
+                           make an application to court </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-11" value="vary an existing court order" name="adviceType[]"><label class="form-check-label" for="adviceType-11"> vary an existing court order </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-12" value="to enforce an existing order" name="adviceType[]"> <label class="form-check-label" for="adviceType-12">to enforce an existing order </label>
+                        </div>
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" id="adviceType-13" value="other" name="adviceType[]"> <label class="form-check-label" for="adviceType-13">other </label>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group col my-2">
+                  <label for="otherDetail">If you answered other to the previous question, can you briefly describe what you need help with?</label>
+                  <textarea type="text" class="form-control" id="otherDetail" name="otherDetail" aria-describedby="detailHelp" placeholder="Enter text" maxlength="512" rows=3></textarea>
+               </div>
+               <div class="mt-4">
+                  <span>Is your enquiry urgent?</span>
+                  <div class="form-check form-check-inline mx-2">
+                     <input class="form-check-input" type="radio" name="urgentEnquiry" id="yes" value="yes">
+                     <label class="form-check-label" for="yes">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="urgentEnquiry" id="no" value="no">
+                     <label class="form-check-label" for="no">No</label>
+                  </div>
+                  <div class="form-group col mt-4">
+                     <label for="deadlineDate">If there is a deadline to be met, please select the date of the deadline.</label>
+                     <input type="date" class="form-control" id="deadlineDate" name="deadlineDate" placeholder="Select a date"> 
+                  </div>
+                  <div class="form-group col my-2">
+                     <label for="deadlineTasks">If there is a deadline to be met, please describe the tasks that must be done before then. </label>
+                     <textarea type="text" class="form-control" id="deadlineTasks" name="deadlineTasks" placeholder="Enter text" maxlength="512" rows=3></textarea>
+                  </div>
+                  <div>
+                     <div style="width: 60%;" class="form-group">
+                        <label for="discoverySelect">How did you find out about us?</label>
+                        <select class="form-control" id="discoverySelect" name="discoverySelect" required>
+                           <option selected disabled>Choose...</option>
+                           <option>LSBU</option>
+                           <option>Word of mouth</option>
+                           <option>Lawyer</option>
+                           <option>Court</option>
+                           <option>Advice organisation</option>
+                           <option>Used it before</option>
+                           <option>Other</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="mt-4">
+                     <span>Your email address will be stored on our system after we have dealt with your enquiry. Would you like us to email you to follow up on your case?</span>
+                     <div class="form-check form-check-inline mx-2">
+                        <input class="form-check-input" type="radio" name="emailInFuture" id="yes" value="yes">
+                        <label class="form-check-label" for="yes">Yes</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="emailInFuture" id="no" value="no">
+                        <label class="form-check-label" for="no">No</label>
+                     </div>
+                  </div>
+                  <!--PRIVACY POLICY STARTS HERE-->
+                  <div class="my-4">
+                     <span><b>London South Bank University is committed to protecting people's rights and privacy in line with the Data Protection Act 2018 (DPA), the General Data Protection Regulation (GDPR) and other relevant legislation and regulations (collectively Data Protection Law). By selecting 'I agree', you are in agreement with our Privacy Statement, which you can read in full <a href="https://www.lsbu.ac.uk/footer/data-protection/website-privacy" alt="London South Bank Privacy Policy">here</a>.</b></span>
+                     <div class="form-check form-check-inline mx-2">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                        <label class="form-check-label" for="invalidCheck2">
+                        I agree.
+                        </label>
+                     </div>
+                  </div>
+                  <!--PRIVACY POLICY ENDS HERE-->
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                     <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                  </div>
+      </form>
+      <!--FORM *TAG* ENDS HERE-->
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+        </body>
+</html>
