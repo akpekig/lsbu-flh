@@ -1,4 +1,4 @@
-# lsbu-flh
+# LSBU Family Law Legal Clinic Form / Content Manager
 Web application for LSBU's Family Law Hub; a relatively simple, user-friendly Bootstrap legal clinic form with Javascript functionality, created by and for LSBU. A functional demo of the form can be found [here](https://lsbu-flh.herokuapp.com/). Demos of the dashboards can be found (admin view)[here](https://lsbu-flh.herokuapp.com/dashboard-admin) and (student view)[here](https://lsbu-flh.herokuapp.com/dashboard-student). 
 
 ***
