@@ -157,6 +157,7 @@
         <th scope="col">Actions</th>
       </thead>
       <tbody>
+
        <%
         var list = '';
         var length = submissions.length;
@@ -196,11 +197,12 @@
 						submissions[i].childAbuse = "N/A";
 					}
 
-            list += '<tr><td>' + submissions[i]._id + '</td>';
+
+            list += '<form action="/dashboard-admin/assign" method="post"><tr><td><input type=\"hidden\" id=\"caseID\" name=\"caseID\" value=\"' + submissions[i]._id +  '\"/>' + submissions[i]._id + '</td>';
             list += '<td>' + submissions[i].date + '</td>';
             list += '<td>' + submissions[i].name + '</td>';
             list += '<td>' + submissions[i].status + '</td>';
-            list += '<td><span style=\"letter-spacing: 25px;\"><a data-bs-toggle=\"collapse\" role=\"button\" data-bs-target=\"#extraData' + i + '\"><i class=\"bi bi-eye\"></i></a><i class=\"bi bi-trash\"></i></span></td>';
+            list += '<td><span style=\"letter-spacing: 25px;\"><a data-bs-toggle=\"collapse\" role=\"button\" data-bs-target=\"#extraData' + i + '\"><i class=\"bi bi-eye\"></i></a><button type=\"button\" class=\"btn btn-outline-danger\" id=\"buttonAction\" value=\"delete\"><i class=\"bi bi-trash\"></i></button></span></td>';
             list += '</tr><tr class=\"collapse\" id=\"extraData' + i + '\">';
             list += '<td><u>Case Details</u><br /><b>What type of advice is needed:</b> ' + submissions[i].adviceType + '<br />';
             list += '<b>Details:</b> ' + submissions[i].otherDetail + '<br />';
@@ -232,11 +234,12 @@
             list += '<b>Special Needs:</b>  ' + submissions[i].specialNeeds + '<br />';
             list += '<b>Are any of the children at risk of suffering immediate injury:</b>  ' + submissions[i].childAbuse + '<br />';
             list += '<b>Further details:</b>  ' + submissions[i].childAbuseDetail + '</td>';
-            list += '<td><form method=\"get\" action="#"><button name=\"getCaseID\" type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"collapse\" data-bs-target=\"#caseID' + i + '\">Get Case ID</button><br /><div style=\"width: 20%; word-wrap: break-word;\" class=\"collapse\" id=\"caseID' + i + '\"><br />Case ID for Students: <b>' + submissions[i]._id + '</b></div><br /><button class=\"btn btn-outline-secondary\" name=\"assign\" type=\"submit\">Assign Case</button><br /><br /><button name=\"close\" type=\"submit\" class=\"btn btn-secondary\">Close Case</button></form></td></tr>';
+            list += '<td><button name=\"getCaseID\" type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"collapse\" data-bs-target=\"#caseID' + i + '\">Get Case ID</button><br /><div style=\"width: 36%; word-wrap: break-word;\" class=\"collapse\" id=\"caseID' + i + '\"><br />Case ID for Students: <b>' + submissions[i]._id + '</b></div><br /><button class=\"btn btn-outline-secondary\" name=\"buttonAction\" id=\"buttonAction\" type=\"submit\" value=\"assign\">Assign Case</button><br /><br /><button name=\"buttonAction\" id=\"buttonAction\" type=\"submit\" value=\"close\" class=\"btn btn-secondary\">Close Case</button></form></td></tr>';
         }
 
       %>
       <%- list %>
+		</form>
       </tbody>
     </table>
     <!--  more details to be added -->
