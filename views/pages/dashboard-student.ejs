@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Student Dashboard</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="title" content="Dashboard, Student View">
+	<meta name="description" content="Dashboard view for students.">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link href="dashboard.css" rel="stylesheet">
+	<!--Other-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <style>
+
+    ul, .sidebar .nav-link, .sidebar .nav-link.active {
+        color: #fff;
+    }
+
+    .lsbu-header{
+  background-color: #aaa6cc;
+  color: #efefef;
+  padding: 5%;
+}
+
+.active,.list-group-item-action:hover{
+    background-color: #aaa6cc;
+}
+
+
+#disabilityDiv{
+  margin-left: -1%
+}
+
+
+</style>
+</head>
+
+<body>
+        <h4>Family Hub Case Database</h4>
+    <!-- Search Bar -->
+        <form class="navbar-form" role="search" method="post" action="/dashboard-student/find">
+								<div class="input-group py-3 w-25">
+									             <input type="text" name="caseID" id="caseID" class="form-control" placeholder="Enter case ID...">
+                               <button class="btn btn-primary" type="submit" name="submit">Go</button>
+									</form>
+									</div>
+							</form>
+	<!-- CASE VIEW -->
+
+	</div>
+	<!-- CASE VIEW ENDS HERE -->
+  </main>
+  </body>
+  </html>
